@@ -1,101 +1,97 @@
-# Track Design
+# Aero-Rider
 
-- The track platform is **310 cm long** and **100 cm wide**, featuring:
-  - A **150 cm rough section** (light gray).
-  - A **160 cm smooth section**.
-  - A small buffer zone.
-
-- Markings include:
-  - **Centerline** (solid line).
-  - **Section boundary lines** (dashed lines).
-
-- Track layout:
-  - **230 cm straight track**:
-    - **150 cm rough section** with 20 cm boundaries from the centerline (black dashed lines). Includes the starting area (dark gray).
-    - **80 cm smooth section** with 30 cm boundaries from the centerline (blue dashed lines).
-  - The track ends with a **quarter-circle stop zone**:
-    - Marked with a centerline, 45° division lines, and boundary lines (blue dashed lines), each 30 cm from the centerline.
-
-- **Side wind tunnel**:
-  - **120 cm long**, **5 cm wide**, placed **35 cm above the smooth track**.
-  - Provides continuous wind at **14.5 m/s**.
-
-- **Load sensors**:
-  - Record initial vehicle weight \( M_0 \) and real-time normal force \( M(t) \).
-  - Downforce calculated as \( F(t) = M(t) - M_0 \).
+## *Introduction*
+This project focuses on designing and building a track vehicle capable of tackling various challenges, including straight-line motion, turning, climbing slopes, and stabilizing on smooth surfaces. The design prioritizes stability, lightweight structure, and optimal downforce to enhance performance.
 
 ---
 
-# Speed Requirements
+## *Game Setup*
+- **Track Platform**:
+  - Dimensions: **310 cm x 100 cm**.
+  - Sections:
+    - **150 cm rough track** (light gray).
+    - **160 cm smooth track**.
+  - Markings:
+    - **Centerline** (solid line).
+    - **Boundary lines** (dashed lines).
+  - Stop zone:
+    - Quarter-circle with a **50 cm radius**, divided into **scoring zones**: A (10), B (7), C (5), D (3).
 
-The test prioritizes **stability and repeatability** over maximum speed. The vehicle is designed for **mid-to-low-speed steady propulsion**, focusing on:
+- **Wind Tunnel**:
+  - Positioned **35 cm above the track**.
+  - Dimensions: **120 cm x 5 cm**.
+  - Wind speed: **14.5 m/s**.
 
-1. **Increased Thrust**: Power and battery systems.
-2. **Lightweight Design**: Materials, chassis, and hollow structures.
-3. **Stable Movement**: Steering, chassis, and axle connections.
-
----
-
-# Steering Requirements
-
-- A **50 cm radius curve** at the end of the track is divided into zones with scores: **A (10), B (7), C (5), D (3)**.
-- The steering mechanism must meet curve radius requirements for optimal performance.
-
----
-
-# Climbing Requirements
-
-The track includes **rough and smooth slopes**. Design factors include:
-
-- **Motor load** and output relative to vehicle weight.
-- **Tire-road interaction** to ensure smooth climbing without slipping.
+- **Load Sensors**:
+  - Measure vehicle weight \( M_0 \) and real-time force \( M(t) \).
+  - Calculate downforce \( F(t) = M(t) - M_0 \).
 
 ---
 
-# Downforce Requirements
-
-- A slope in the smooth section requires **additional downforce** to enhance tire grip and stability.
-- The test score depends on the ratio of **vehicle weight to downforce**:
-  - Design must maximize downforce while minimizing weight.
-
----
-
-# Key System Designs
-
-### Steering System
-- Two front wheels equipped with **MG996R servo motors**.
-- Steering achieved via speed differences between the left and right wheels.
-
-### Power System
-- Three **MG996R servo motors**:
-  - Two for the front wheels.
-  - One for the rear wheels, driving bevel gears and axles.
-
-### Chassis Design
-- Components include:
-  - **MG996R motors**, Arduino Uno, XL4005 step-down module, 18650 batteries, and a breadboard.
-  - Motors mounted with custom brackets.
-- **Weight reduction**:
-  - Hexagonal cutouts in the base and top plates.
-
-### Wind Device Mechanism
-- **Deployment**: Devices lift to a horizontal position to increase wind-facing area.
-- **Lift**: Three-rod mechanism (based on a patent) ensures near-linear, parallel motion.
-
-### Drive Mechanism
-- Includes left and right units driven by servo motors connected to fork-shaped components.
-- Flexible motion achieved through sliding and rotation.
+## *Aims*
+- **Stability**: Achieve repeatable performance over an extended 8-minute test.
+- **Steering Precision**: Navigate curves for maximum scores.
+- **Climbing Capability**: Overcome both rough and smooth slopes.
+- **Downforce Optimization**: Enhance grip while minimizing weight.
 
 ---
 
-# Control System
+## *Design Overview*
+### **Core Systems**
+1. **Steering System**:
+   - Two **MG996R servo motors** control front wheels.
+   - Steering via speed differences between left and right wheels.
 
-- **MG996R motors** controlled by Arduino Uno.
-- Power supplied by three **18650 batteries**, reducing weight and wiring complexity.
+2. **Power System**:
+   - Three **MG996R motors**:
+     - Two for front wheels.
+     - One for rear wheels, driving bevel gears and axles.
+
+3. **Chassis**:
+   - Materials: Lightweight with **hexagonal cutouts** for weight reduction.
+   - Custom motor brackets secure the MG996R motors.
+
+4. **Expandable Wing**:
+   - **Deployment**: Wings lift horizontally to maximize wind-facing area.
+   - **Lift Mechanism**: Uses a patented three-rod system for linear motion.
+
+5. **Drive Mechanism**:
+   - Servo-driven fork applies force to the connecting rod of lift mechanisms.
+   - Design allows for sliding and rotational movement.
 
 ---
 
-# Wiring
+## *Electronics*
 
-- Six MG996R motors controlled via Arduino Uno and XL4005 module.
-- The system ensures sufficient torque for all tasks.
+### **Components**
+- **MG996R servo motors** for driving and steering.
+- **Arduino Uno** microcontroller for signal control.
+- **XL4005 step-down module** for power regulation.
+- Three **18650 batteries** for power supply.
+- Breadboard for prototyping circuits.
+
+### **Controls**
+- Arduino Uno delivers control signals to six MG996R motors.
+- Power is regulated to ensure reliable operation while reducing complexity and weight.
+
+---
+
+## *Features*
+1. **Straight-Line Stability**:
+   - Combines lightweight materials and balanced power output.
+
+2. **Precision Steering**:
+   - Achieves tight turns with minimal deviation.
+
+3. **Climbing Performance**:
+   - Ensures smooth navigation over varied slopes using optimized motor load.
+
+4. **Enhanced Downforce**:
+   - Expandable Wing increases tire grip on smooth surfaces.
+   - Maximizes the weight-to-downforce ratio for higher scores.
+
+5. **Weight Reduction**:
+   - Hexagonal cutouts in the base and top plates minimize unnecessary weight.
+
+6. **Efficient Power Management**:
+   - Compact design with minimal wiring for reduced complexity.
